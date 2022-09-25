@@ -1,59 +1,96 @@
 <!DOCTYPE HTML>
 <html>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="styles.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<link rel="stylesheet" href="styles.css"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
-    <title> Expense & Budget Tracker </title>
+<title> Expense & Budget Tracker </title>
+
 <head>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-    <div class="p-3 mb-2 bg-success">
-        <h1 class="main_heading text-center text-white"> Expense & Budget Tracker </h1>
-    </div>
-    </head>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+    crossorigin="anonymous"></script>
+  <div class="p-3 mb-2 bg-success">
+    <h1 class="main_heading text-center text-white"> Expense & Budget Tracker </h1>
+  </div>
+</head>
 
-    <body>
-        <div>
-            <h1> Budget </h1>
-            <form>
-                <label>Enter Budget Category</label>
-                <input type="text" class="form-control"> 
-                <button> Add Budget </button>
-            </form>
-            <table>
-                <thead>
-                    <tr>
-                        <th>
-                            Budget Category
-                        </th>
-                        <th>
-                            Budget Amount / Month
-                        </th>
-                        <th>
-                            Amount Left in Budget
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            Food
-                        </td>
-                        <td>
-                            $500
-                        </td>
-                        <td>
-                            $148
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
- 
-        </div>
-        <div>
-            <h1> Expenses </h1>
-            <button> Add Expense </button>
-        </div>
-    </body>
+<body>
+  <div class="p-4 mb-2">
+    <h2> Budget </h2>
+    <form id="budgetForm">
+      <div class="form-group">
+        <label> Enter Budget Category </label>
+        <input type="text" class="form-control form-control-lg" id="budgetCategory" placeholder="Enter Budget Category" required>
+        <label> Enter Budget Amount per Month </label>
+        <input type="text" class="form-control form-control-lg" id="budgetAmount" placeholder="Enter Budget Amount per Month" required>
+        <br>
+        <button type="submit" class="btn btn-success btn-lg" id="budgetButton"> Add Budget </button>
+      </div>
+    </form>
+    <br>
+    <table class="table table-striped table-bordered table-responsive" id="budgetTable">
+      <thead>
+        <tr>
+          <th> Budget Category </th>
+          <th> Budget Amount / Month </th>
+          <th> Amount Left in Budget </th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="p-5 mb-0">
+    <h1> Total Expenses </h1>
+    <table class="table table-striped table-bordered table-responsive" id="totalExpensesTable">
+      <thead>
+        <tr>
+          <th> Number of Expenses </th>
+          <th> Total Expense Amount </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td> 0 </td>
+          <td> $0.00 </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="p-4 mb-0">
+    <h2> Expenses </h2>
+    <form id="expensesForm">
+      <div class="form-group">
+        <label> Enter Expense Name </label>
+        <input type="text" class="form-control form-control-lg" id="expensesName" placeholder="Enter Expense Name" required>
+        <label> Enter Expense Amount </label>
+        <input type="text" class="form-control form-control-lg" id="expensesAmount" placeholder="Enter Expense Amount" required>
+        <label> Enter Budget Category </label>
+        <select class="form-select" id="expensesBudgetCategory">
+        </select>
+        <br>
+        <button type="submit" class="btn btn-success btn-lg"> Add Budget </button>
+      </div>
+    </form>
+    <br>
+    <table class="table table-striped table-bordered table-responsive" id="expensesTable">
+      <thead>
+        <tr>
+          <th> Expense Name </th>
+          <th> Expense Amount </th>
+          <th> Budget Category </th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+  <script src="./app.js"> </script>
+</body>
+
 </html>
