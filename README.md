@@ -1,4 +1,4 @@
-# Budget-Expense-Tracker
+# Financial-Tracker
 This project utilizes Bootstrap for the website design and Javascript for the program implementation.
 
 This is just a simple budget and expense tracker. 
