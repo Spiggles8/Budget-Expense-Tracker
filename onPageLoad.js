@@ -1,7 +1,7 @@
 // This JavaScript file handles the first page load and local storage loading in to the tables. 
 
 // imports functions from functions.js
-import {deleteBudgetCategory, deleteExpensesItem, deleteIncomeItem, findBudgetCategoryRow, arraySum} from '/functions.js';
+import {deleteBudgetCategory, deleteExpensesItem, deleteIncomeItem, findBudgetCategoryRow, arraySum} from './functions.js';
 
 
 // Sets the Budget Table & Delete button display to none until Submit button is pressed.
