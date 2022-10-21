@@ -1,7 +1,7 @@
 // This JavaScript file handles all button presses of the Finance Tracker Website. 
 
 // imports functions from functions.js
-import {findBudgetCategoryRow, deleteBudgetCategory, deleteExpensesItem, deleteIncomeItem, arraySum} from '/functions.js';
+import {findBudgetCategoryRow, deleteBudgetCategory, deleteExpensesItem, deleteIncomeItem, arraySum} from './functions.js';
 
 
 // Retrieves the local Storage Arrays.
