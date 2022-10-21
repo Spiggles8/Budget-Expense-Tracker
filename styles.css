@@ -1,0 +1,45 @@
+@import url(fontawesome-all.min.css);
+
+
+/* Sizing to ensure full view height is utilized */
+#headerMain {
+    min-height: 15vh;
+}
+
+#financialOverview {
+    min-height: 10vh;
+}
+
+#tabMenu {
+    min-height: 2.5vh;
+}
+
+#tabContent {
+    min-height: 60vh;
+}
+
+footer {
+    min-height: 4vh;
+}
+
+/*reducing image size */
+img {
+    max-width: 10%;
+}
+
+/* Customize navBar tabs */
+.nav-tabs, .nav-link {
+    border: none !important;
+    margin-bottom: 0 !important;
+    color: black !important;
+}
+
+.nav-link:hover {
+    background-color: rgb(25,135,84,0.25) !important;
+}
+
+.nav-link.active {
+    background-color: rgb(25,135,84) !important;
+    color: white !important;
+    border: none !important;
+}

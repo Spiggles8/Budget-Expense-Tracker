@@ -1,105 +1,187 @@
+<!-- This webpage is created using Bootstrap 5 and Javascript by Sean Spiggle. -->
+
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="styles.css" />
+<link rel="icon" type="imge/x-icon" href="/images/Money_Logo2.png">
+<link rel="stylesheet" href="styles.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
   integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
-<title> Expense & Budget Tracker </title>
+<title> Finances Tracker </title>
 
 <head>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
     crossorigin="anonymous"></script>
-  <div class="p-3 mb-2 bg-success">
-    <h1 class="main_heading text-center text-white"> Expense & Budget Tracker </h1>
+  <script src="https://kit.fontawesome.com/d4218a8ebe.js" crossorigin="anonymous"></script>
+  <div class="bg-success bg-gradient" id="headerMain">
+    <img class="d-inline img-float w-25" src="/images/Money_Logo2.png" alt="money logo">
+    <h1 class="d-inline text-center text-white display-1"> Finances Tracker </h1>
   </div>
 </head>
 
+
 <body>
-  <div class="p-4 mb-2 m-5">
-    <h2> Budget </h2>
-    <form id="budgetForm">
-      <div class="form-group">
-        <label> Enter Budget Category </label>
-        <input type="text" class="form-control form-control-lg" id="budgetCategory" placeholder="Enter Budget Category"
-          required>
-        <label> Enter Budget Amount per Month </label>
-        <input type="text" class="form-control form-control-lg" id="budgetAmount"
-          placeholder="Enter Budget Amount per Month" required>
-        <br>
-        <button type="submit" class="btn btn-success btn-lg" id="budgetButton"> Add Budget </button>
-      </div>
-    </form>
-    <br>
-    <table class="table table-striped table-bordered table-responsive" id="budgetTable">
-      <thead>
+  <!-- The Main Header Section -->
+  <div class="text-center ps-5 pe-5 pt-4" id="financialOverview">
+    <h2 class="mb-0"> Monthly Financial Overview </h2>
+    <table class="table table-bordered table-responsive mt-0 pt-0 mb-5" id="financialOverviewTable">
+      <thead class="bg-success bg-gradient text-white">
         <tr>
-          <th> Budget Category </th>
-          <th> Budget Amount / Month </th>
-          <th> Amount Left in Budget </th>
-          <th> </th>
+          <th> Total Income Amount </th>
+          <th> Total Expense Amount </th>
+          <th> Balance </th>
+          <th> Total Budget </th>
+          <th> Staying Within Budget? </th>
         </tr>
       </thead>
       <tbody>
+        <tr>
+          <td id="totalIncome"> 0 </td>
+          <td id="totalExpenses"> 0 </td>
+          <td id="totalBalance"> 0 </td>
+          <td id="totalBudget"> 0 </td>
+          <td id="budgetStatus"> Yes </td>
+        </tr>
       </tbody>
     </table>
-    <div class="div">
-      <button type="button" class="btn btn-danger" id="deleteBudgetTable" onclick="deleteBudgetTable()">
-        Delete All Budget Table Data
-      </button>
+  </div>
+
+  <!-- Tabs to be selected -->
+  <ul class="nav nav-tabs m-0 p-0 d-flex justify-content-around" id="tabMenu" role="tablist">
+    <li class="nav-item"><a class="nav-link active ps-5 pe-5" data-bs-toggle="tab" href="#budget"> Budget </a></li>
+    <li class="nav-item"><a class="nav-link ps-5 pe-5" data-bs-toggle="tab" href="#income"> Income </a></li>
+    <li class="nav-item"><a class="nav-link ps-5 pe-5" data-bs-toggle="tab" href="#expenses"> Expenses </a></li>
+  </ul>
+
+
+  <div class="tab-content text-center bg-success ps-5 pe-5 pb-5" id="tabContent">
+    <!-- First Tab: BUDGET -->
+    <div id="budget" class="tab-pane active ps-5 pe-5 ms-5 me-5">
+      <form id="budgetForm">
+        <div class="form-group p-4">
+          <label class="text-white"> Enter Budget Category </label>
+          <input type="text" class="form-control form-control-lg m-1" id="budgetCategory"
+            placeholder="Enter Budget Category" required>
+          <label class="text-white pt-4"> Enter Budget Amount per Month </label>
+          <input type="text" class="form-control form-control-lg m-1" id="budgetAmount"
+            placeholder="Enter Budget Amount per Month" required>
+          <button type="submit" class="btn btn-warning btn-lg mt-4 p-2" id="budgetButton"> Add Budget
+            Category
+          </button>
+        </div>
+      </form>
+
+      <!-- The table and delete table button will only be shown if there is data present -->
+      <table class="table table-striped table-bordered table-responsive bg-white mt-3" id="budgetTable">
+        <thead>
+          <tr>
+            <th> Budget Category </th>
+            <th> Budget Amount / Month </th>
+            <th> Amount Left in Budget </th>
+            <th> </th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+      <div class="div">
+        <button type="button" class="btn btn-danger" id="deleteBudgetTableButton">
+          Delete All Budget Table Data
+        </button>
+      </div>
+    </div>
+
+    <!-- Second Tab: INCOME -->
+    <div id="income" class="tab-pane fade ps-5 pe-5 ms-5 me-5 bg-success">
+      <form id="incomeForm">
+        <div class="form-group p-4">
+          <label class="text-white"> Enter Income Source </label>
+          <input type="text" class="form-control form-control-lg m-1" id="incomeSource"
+            placeholder="Enter Income Source" required>
+          <label class="text-white pt-4"> Enter Income Amount </label>
+          <input type="text" class="form-control form-control-lg m-1" id="incomeAmount"
+            placeholder="Enter Income Amount" required>
+          <button type="submit" class="btn btn-warning btn-lg mt-4 p-2"> Add Income Item </button>
+        </div>
+
+        <!-- The table and delete table button will only be shown if there is data present -->
+        <table class="table table-striped table-bordered table-responsive bg-white mt-3" id="incomeTable">
+          <thead>
+            <tr>
+              <th> Income Source </th>
+              <th> Income Amount </th>
+              <th> </th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+        <div class="div">
+          <button type="button" class="btn btn-danger" id="deleteIncomeTableButton">
+            Delete All Income Data
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Third Tab: EXPENSES -->
+    <div id="expenses" class="tab-pane fade ps-5 pe-5 bg-success ms-5 me-5">
+      <form id="expensesForm">
+        <div class="form-group p-4">
+          <label class="text-white"> Enter Expense Name </label>
+          <input type="text" class="form-control form-control-lg m-1" id="expensesName" placeholder="Enter Expense Name"
+            required>
+          <label class="text-white pt-4"> Enter Expense Amount </label>
+          <input type="text" class="form-control form-control-lg m-1" id="expensesAmount"
+            placeholder="Enter Expense Amount" required>
+          <label class="text-white pt-4"> Enter Budget Category </label>
+          <select class="form-select" id="expensesBudgetCategory">
+          </select>
+          <button type="submit" class="btn btn-warning btn-lg mt-4 p-2"> Add Expense Item </button>
+        </div>
+      </form>
+
+      <!-- The table and delete table button will only be shown if there is data present -->
+      <table class="table table-striped table-bordered table-responsive bg-white" id="expensesTable">
+        <thead>
+          <tr>
+            <th> Expense Name </th>
+            <th> Expense Amount </th>
+            <th> Budget Category </th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+      <div class="div">
+        <button type="button" class="btn btn-danger" id="deleteExpensesTableButton">
+          Delete All Expenses Table Data
+        </button>
+      </div>
     </div>
   </div>
 
-  <div class="p-5 mb-0">
-    <h1> Total Expenses </h1>
-    <table class="table table-striped table-bordered table-responsive" id="totalExpensesTable">
-      <thead>
-        <tr>
-          <th> Number of Expenses </th>
-          <th> Total Expense Amount </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td> 0 </td>
-          <td> $0.00 </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
 
-  <div class="p-4 mb-0">
-    <h2> Expenses </h2>
-    <form id="expensesForm">
-      <div class="form-group">
-        <label> Enter Expense Name </label>
-        <input type="text" class="form-control form-control-lg" id="expensesName" placeholder="Enter Expense Name"
-          required>
-        <label> Enter Expense Amount </label>
-        <input type="text" class="form-control form-control-lg" id="expensesAmount" placeholder="Enter Expense Amount"
-          required>
-        <label> Enter Budget Category </label>
-        <select class="form-select" id="expensesBudgetCategory">
-        </select>
-        <br>
-        <button type="submit" class="btn btn-success btn-lg"> Add Budget </button>
-      </div>
-    </form>
-    <br>
-    <table class="table table-striped table-bordered table-responsive" id="expensesTable">
-      <thead>
-        <tr>
-          <th> Expense Name </th>
-          <th> Expense Amount </th>
-          <th> Budget Category </th>
-        </tr>
-      </thead>
-      <tbody>
-      </tbody>
-    </table>
-  </div>
+  <footer class="bg-warning bg-gradient">
+    <ul class="list-group m-0 p-0 text-center">
+      <li>
+        <p class="m-0 p-0">Copyright: Sean Spiggle | 2022 </p>
+      </li>
+      <li>
+        <p class="m-0 p-0">Technologies Used: Bootstrap, JavaScript, Local Storage</p>
+      </li>
+      <li class="d-inline-flex justify-content-center">
+        <a href="#" class="fa-brands fa-github"></a>
+        <p class="m=0 p=0"> Gmail </p>
+        <a href="#" class="fa-brands fa-linkedin"></a>
+        <p class="m=0 p=0"> Portfolio </p>
+      </li>
+    </ul>
+  </footer>
+
   <script type="module" src="./onPageLoad.js"> </script>
   <script type="module" src="./functions.js"> </script>
   <script type="module" src="./buttonPresses.js"> </script>
