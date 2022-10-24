@@ -16,8 +16,6 @@ export function findBudgetCategoryRow(table, specificBudgetCategory) {
     return j;
 }
 
-
-
 // This function deletes a row in the budget table and deletes the specific category from local storage. 
 export function deleteBudgetCategory(selectedRow) {
     var budgetTableRowNode= selectedRow.parentNode.parentNode;

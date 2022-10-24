@@ -26,36 +26,43 @@
 <body>
   <!-- The Main Header Section -->
   <div class="text-center ps-5 pe-5 pt-4" id="financialOverview">
-    <h2 class="mb-0"> Monthly Financial Overview </h2>
-    <table class="table table-bordered table-responsive mt-0 pt-0 mb-5" id="financialOverviewTable">
-      <thead class="bg-success bg-gradient text-white">
-        <tr>
-          <th> Total Income Amount </th>
-          <th> Total Expense Amount </th>
-          <th> Balance </th>
-          <th> Total Budget </th>
-          <th> Staying Within Budget? </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td id="totalIncome"> 0 </td>
-          <td id="totalExpenses"> 0 </td>
-          <td id="totalBalance"> 0 </td>
-          <td id="totalBudget"> 0 </td>
-          <td id="budgetStatus"> Yes </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="row">
+      <h2 class="mb-0"> Monthly Financial Overview </h2>
+    </div>
+    <div class="row table-responsive">
+      <table class="table table-bordered mt-0 pt-0 mb-5" id="financialOverviewTable">
+        <thead class="bg-success bg-gradient text-white">
+          <tr>
+            <th> Total Income Amount </th>
+            <th> Total Expense Amount </th>
+            <th> Balance </th>
+            <th> Total Budget </th>
+            <th> Staying Within Budget? </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td id="totalIncome"> 0 </td>
+            <td id="totalExpenses"> 0 </td>
+            <td id="totalBalance"> 0 </td>
+            <td id="totalBudget"> 0 </td>
+            <td id="budgetStatus"> Yes </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 
   <!-- Tabs to be selected -->
-  <ul class="nav nav-tabs m-0 p-0 d-flex justify-content-around" id="tabMenu" role="tablist">
-    <li class="nav-item"><a class="nav-link active ps-5 pe-5" data-bs-toggle="tab" href="#budget"> Budget </a></li>
-    <li class="nav-item"><a class="nav-link ps-5 pe-5" data-bs-toggle="tab" href="#income"> Income </a></li>
-    <li class="nav-item"><a class="nav-link ps-5 pe-5" data-bs-toggle="tab" href="#expenses"> Expenses </a></li>
-  </ul>
-
+  <div class="container">
+    <div class="row">
+      <ul class="nav nav-tabs m-0 p-0 d-flex justify-content-around" id="tabMenu" role="tablist">
+        <li class="nav-item"><a class="nav-link active ps-5 pe-5" data-bs-toggle="tab" href="#budget"> Budget </a></li>
+        <li class="nav-item"><a class="nav-link ps-5 pe-5" data-bs-toggle="tab" href="#income"> Income </a></li>
+        <li class="nav-item"><a class="nav-link ps-5 pe-5" data-bs-toggle="tab" href="#expenses"> Expenses </a></li>
+      </ul>
+    </div>
+  </div>
 
   <div class="tab-content text-center bg-success ps-5 pe-5 pb-5" id="tabContent">
     <!-- First Tab: BUDGET -->
