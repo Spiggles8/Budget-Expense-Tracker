@@ -1,7 +1,14 @@
-# Financial-Tracker
-This project utilizes Bootstrap for the website design and Javascript for the program implementation.
+# Finances-Tracker
 
-This is just a simple budget and expense tracker. 
-You enter in your budget for various categories and then enter in a list of expenses with the budget category specified and it calculates how much budget you have left and your total number and cash amount spent.
+TECHNOLOGIES USED: HTML, BootStrap, JavaScript
 
-The next phase of this project will be to implement it to mySql most likely using React as this will be a stepping stone to begin a portfolio project. 
+This website gives the user the ability to manage finances including budget, incomes, and expenses. 
+The user enters data through forms and that gets added to tables in each tab. 
+This data then all gets compiled in to the Monthly Overview Table. 
+The user is able to add and delete items in the tables.  
+
+![image](https://user-images.githubusercontent.com/110023169/203033391-d1f1b717-a679-479c-b956-e4885d1d43a8.png)
+
+
+Future Updates/Considerations: 
+1. Create login .
