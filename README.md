@@ -11,4 +11,7 @@ The user is able to add and delete items in the tables.
 
 
 Future Updates/Considerations: 
-1. Create login .
+1. Create full stack app using ReactJs and NodeJS to allow individual users to login and save info.
+2. Ultimately, I want the option when registering to be for either a family or business and adjust options accordingly.
+3. Need to be able to collaborate data with other users. 
+4. Need to make fully responsive. 
